@@ -1,5 +1,7 @@
 ﻿namespace Sitecore.Support.Modules.EmailCampaign.Core.Pipelines.GenerateLink.Hyperlink
 {
+    using System.Web;
+
     using Diagnostics;
     using Sitecore.Modules.EmailCampaign.Core.Pipelines.GenerateLink;
     using Sitecore.Modules.EmailCampaign.Core.Pipelines.GenerateLink.Hyperlink;
@@ -10,7 +12,15 @@
         {
             Assert.IsNotNull(args, "Arguments can't be null");
             Assert.IsNotNull(args.Url, "Url can't be null");
-            base.Process(args);
+
+            #region FIX
+
+            if (args.PreviewMode)
+                args.GeneratedUrl = HttpUtility.HtmlDecode(args.Url);
+            else
+                base.Process(args);
+
+            #endregion
         }
     }
 }
