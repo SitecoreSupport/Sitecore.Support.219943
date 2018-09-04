@@ -57,7 +57,7 @@
     <Reference Include="System.Configuration" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Modules\EmailCampaign\Core\Pipelines\GenerateLink\Hyperlink\FixedGenerateHyperlink.cs" />
+    <Compile Include="Modules\EmailCampaign\Core\Pipelines\GenerateLink\Hyperlink\EncryptQueryString.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
